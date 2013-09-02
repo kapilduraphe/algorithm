@@ -1,12 +1,17 @@
-------------------------------------------------------------------------
-This is the project README file. Here, you should describe your project.
-Tell the reader (someone who does not know anything about this project)
-all he/she needs to know. The comments should usually include at least:
-------------------------------------------------------------------------
 
-PROJECT TITLE:
-PURPOSE OF PROJECT:
-VERSION or DATE:
-HOW TO START THIS PROJECT:
-AUTHORS:
-USER INSTRUCTIONS:
+---------------------------------------------------
+2013-09-02
+tuliren
+---------------------------------------------------
+
+Algorithm exercises from leetcode
+
+Language: Java
+IDE: BlueJ
+
+
+StockBuySell.java - Best Time to Buy and Sell Stock (2013-09-02)
+
+StockMultipleBuySell.java - Best Time to Buy and Sell Stock II (2013-09-02)
+
+StockMultipleDoubleBuySell.java - Best Time to Buy and Sell Stock III
