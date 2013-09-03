@@ -1,12 +1,16 @@
 Algorithm exercises from leetcode
 ---------------------------------
-tuliren
-2013-09-02
+- tuliren
 
-Language: Java
-==============
-IDE: BlueJ
-==========
+- 2013-09-02
+
+---
+
+- Language: Java
+
+- IDE: BlueJ
+
+---
 
 - Best Time to Buy and Sell Stock - StockBuySell.java (2013-09-02)
 
