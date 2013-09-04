@@ -5,49 +5,50 @@
  * You may not engage in multiple transactions at the same time
  * (ie, you must sell the stock before you buy again).
  * 
- * Solution: 
+ * Solution:
+ * For day i, keep track of the highest profit before this day and after this day.
+ * maxProfit = profitBefore[i]                  + profitAfter[i]
+ * maxProfit = (prices[i] - lowestHistoryPrice) + (highestFuturePrice - prices[i])
+ * The first part can be calculated by scanning forward, and the latter part backward.
  * 
  */
 public class StockDoubleBuySell {
     public int maxProfit(int[] prices) {
+        
         int len = prices.length;
-        if (len == 0 || len == 1) {return 0;}
-        // create an array of price differences
-        // prices[0..len-1]
-        // priceDiff[0..len-2]
-        int[] priceDiff = new int[len-1];
-        for (int i = 0; i < len-1; i++) {
-            priceDiff[i] = prices[i+1] - prices[i];
+        if (len == 0 || len == 1) {
+            return 0;
+        }
+        int maxProfit = 0;
+        int[] profitBefore = new int[len];
+        int[] profitAfter = new int[len];
+        profitBefore[0] = 0;
+        profitAfter[len-1] = 0;
+        int lowestHistoryPrice = prices[0];
+        int highestFuturePrice = prices[len-1];
+        // calculate the highest profit before day i
+        for (int i = 1; i < len; i++) {
+            if (prices[i] < lowestHistoryPrice) {
+                lowestHistoryPrice = prices[i];                
+            }
+            if (prices[i] - lowestHistoryPrice > profitBefore[i]) {
+                profitBefore[i] = prices[i] - lowestHistoryPrice;
+            }            
         }
         
-        int maxFirst = 0;
-        int maxSecond = 0;
-        int currentMax = 0;
-        for (int i = 0; i < len-1; i++) {
-            if (priceDiff[i] >= 0) {
-                currentMax = currentMax + priceDiff[i];
-            } else {
-                if (currentMax > maxFirst) {
-                    maxSecond = maxFirst;
-                    maxFirst = currentMax;
-                    System.out.printf("maxFirst: %d, maxSecond: %d\n", maxFirst, maxSecond);
-                } else if (currentMax > maxSecond) {
-                    maxSecond = currentMax;
-                    System.out.printf("maxSecond: %d\n", maxSecond);
-                }
-                currentMax = 0;
+        // calculate the highest profit after day i
+        for (int i = len - 2; i >= 0; i--) {
+            if (prices[i] > highestFuturePrice) {
+                highestFuturePrice = prices[i];
             }
-        }
-        // 
-        if (currentMax >= maxFirst) {
-            maxSecond = maxFirst;
-            maxFirst = currentMax;
-            System.out.printf("maxFirst: %d, maxSecond: %d\n", maxFirst, maxSecond);
-        } else if (currentMax > maxSecond) {
-            maxSecond = currentMax;
-            System.out.printf("maxSecond: %d\n", maxSecond);
-        }
-        return maxFirst + maxSecond;
+            if (highestFuturePrice - prices[i] > profitAfter[i]) {
+                profitAfter[i] = highestFuturePrice - prices[i];
+            }
+            if (profitAfter[i] + profitBefore[i] > maxProfit) {
+                maxProfit = profitAfter[i] + profitBefore[i];
+            }
+        }        
+        return maxProfit;
     }
     
     public static void main() {

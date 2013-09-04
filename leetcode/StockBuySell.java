@@ -4,7 +4,7 @@
  * If you were only permitted to complete at most one transaction
  * (ie, buy one and sell one share of the stock), design an algorithm to find the maximum profit.
  * 
- * Solution:
+ * Solution #1
  * This is equivalent to max subarray problem.
  * 1) generate an array of price difference;
  * 2) iterating through the array, calculating the local max ending with the current element;
@@ -12,8 +12,17 @@
  *    which means re-start purchase from that price difference;
  * 4) check with each iteration if the local max is larger than the global max;
  *    if so, take the local max as the global max.
+ *    
+ * Solution #2
+ * This method does not need to calcuate the price differences.
+ * The highest profit is reached by currentPrcie - lowestPrice.
+ * During the iteration, always update the lowestPrice when one is encountered,
+ * calculate at the meantime whether prices[i] - lowestPrice is greater than the recorded
+ * max profit.
+ * 
  */
 public class StockBuySell {
+    // solution #1
     public int maxProfit(int[] prices) {
         int len = prices.length;
         if (len == 0 || len == 1) {return 0;}

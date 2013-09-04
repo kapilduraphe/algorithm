@@ -20,16 +20,13 @@ public class StockMultipleBuySell {
         int[] priceDiff = new int[len-1];
         for (int i = 0; i < len-1; i++) {
             priceDiff[i] = prices[i+1] - prices[i];            
-        }
-        
+        }        
         int max = 0;  // global max
         for (int i = 0; i < len-1; i++) {
             if (priceDiff[i] > 0) {
                 max = max + priceDiff[i];
             }
-            
         }
-
         return max;
     }
     
@@ -49,13 +46,11 @@ public class StockMultipleBuySell {
         test3[4] = 0;
         test3[5] = 3;
         test3[6] = 0;
-        test3[7] = 4;
-        
+        test3[7] = 4;        
         StockMultipleBuySell t = new StockMultipleBuySell();
         System.out.printf("test []: %d\n", t.maxProfit(test0));
         System.out.printf("test [0]: %d\n", t.maxProfit(test1));
         System.out.printf("test [0, 1, 2, 3, 4]: %d\n", t.maxProfit(test2));
         System.out.printf("test [0, 1, 0, 2, 0, 3, 0, 4]: %d\n", t.maxProfit(test3));
     }
-
 }
