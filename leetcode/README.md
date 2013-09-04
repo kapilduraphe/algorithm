@@ -13,4 +13,10 @@ IDE: BlueJ
 
 - Best Time to Buy and Sell Stock II - StockMultipleBuySell.java (2013-09-02)
 
-- Best Time to Buy and Sell Stock III - StockMultipleDoubleBuySell.java
+- Best Time to Buy and Sell Stock III
+[StockMultipleDoubleBuySell.java](https://github.com/tuliren/algorithm/blob/master/leetcode/StockDoubleBuySell.java) (2013-09-03)
+
+- Remove Duplicates from Sorted Array
+[RmDupFromSortedList](https://github.com/tuliren/algorithm/blob/master/leetcode/RmDupFromSortedArray.java) (2013-09-04)
+
+- Remove Duplicates from Sorted Array II - [RmDupFromSortedListII](https://github.com/tuliren/algorithm/blob/master/leetcode/RmDupFromSortedArrayII.java) (2013-09-04)
