@@ -1,17 +1,17 @@
 #BlueJ package file
 package.editor.height=400
 package.editor.width=673
-package.editor.x=77
-package.editor.y=149
+package.editor.x=426
+package.editor.y=170
 package.numDependencies=0
 package.numTargets=3
 package.showExtends=true
 package.showUses=true
 project.charset=UTF-8
-target1.editor.height=725
-target1.editor.width=1178
-target1.editor.x=58
-target1.editor.y=78
+target1.editor.height=884
+target1.editor.width=1458
+target1.editor.x=-9
+target1.editor.y=-9
 target1.height=50
 target1.name=StockDoubleBuySell
 target1.naviview.expanded=true

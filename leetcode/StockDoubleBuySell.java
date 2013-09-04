@@ -13,8 +13,7 @@
  * 
  */
 public class StockDoubleBuySell {
-    public int maxProfit(int[] prices) {
-        
+    public int maxProfit(int[] prices) {        
         int len = prices.length;
         if (len == 0 || len == 1) {
             return 0;
