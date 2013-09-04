@@ -28,25 +28,20 @@ public class StockDoubleBuySell {
         int highestFuturePrice = prices[len-1];
         // calculate the highest profit before day i
         for (int i = 1; i < len; i++) {
-            if (prices[i] < lowestHistoryPrice) {
-                lowestHistoryPrice = prices[i];                
-            }
-            if (prices[i] - lowestHistoryPrice > profitBefore[i]) {
-                profitBefore[i] = prices[i] - lowestHistoryPrice;
-            }            
+            lowestHistoryPrice = Math.min(lowestHistoryPrice, prices[i]);
+            // highest profit so far is reached either by a trade before (profitBefore[i-1])
+            // or by the trade via selling the stock today (prices[i] - lowestHistoryPrice))
+            profitBefore[i] = Math.max(profitBefore[i-1], prices[i] - lowestHistoryPrice);
         }
         
         // calculate the highest profit after day i
         for (int i = len - 2; i >= 0; i--) {
-            if (prices[i] > highestFuturePrice) {
-                highestFuturePrice = prices[i];
-            }
-            if (highestFuturePrice - prices[i] > profitAfter[i]) {
-                profitAfter[i] = highestFuturePrice - prices[i];
-            }
-            if (profitAfter[i] + profitBefore[i] > maxProfit) {
-                maxProfit = profitAfter[i] + profitBefore[i];
-            }
+            highestFuturePrice = Math.max(highestFuturePrice, prices[i]);
+            // future highest profit is reached either by a future trade (profitAfter[i+1])
+            // or by the trade via buying the stock today (highestFuturePrice - prices[i])
+            profitAfter[i] = Math.max(profitAfter[i+1], highestFuturePrice - prices[i]);
+            // summing up the total profit
+            maxProfit = Math.max(maxProfit, profitAfter[i] + profitBefore[i]);
         }        
         return maxProfit;
     }
